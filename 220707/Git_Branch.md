@@ -67,59 +67,224 @@
 
 기존 master 브랜치에 변경사항이 없어 단순한 앞으로의 이동
 
-| 명령어                                                 | 뜻                                   |
-| :----------------------------------------------------- | ------------------------------------ |
-| (master) $ git merge checkout -b 'feature-a'           | feature-a 이름의 브랜치 생성 및 이동 |
-| A 파일 생성 및 수정                                    |                                      |
-| $ git add A / $ git commit -m 'A파일 생성 및 수정'     | 버전 저장                            |
-| $ git log --oneline                                    | 버전 한줄씩 보여줘                   |
-| d68858d   A파일 생성 및 수정                           |                                      |
-| $ git checkout master                                  | 마스터 브런치로 나옴                 |
-| $ git merge 'feature-a'                                | feature-a 브랜치 마스터로 병합       |
-| $ git log --oneline                                    | 버전 한줄씩 보여줘                   |
-| d68858d A 파일 생성 및 수정 // 14691a0 마스터 최근버전 |                                      |
-| $ git branch -d 'feature-a'                            | feature-a 브랜치 삭제                |
+1. feature/home branch 생성 및 이동
+
+   ```bash
+   $ git checkout -b 'feature'
+   ```
+
+   
+
+2. 작업 완료 후 commit
+
+   ```bash
+   (feature/home) $ touch home.txt
+   (feature/home) $ git add .
+   (feature/home) $ git commit -m 'Add home.txt'
+   ```
+
+
+3. master 이동
+
+   ```bash
+   $ git checkout 'master'
+   ```
+
+   
+
+
+4. master에 병합
+
+   ```bash
+   $ git merge 'feature'
+   ```
+
+   
+
+
+5. 결과 : fast-foward
+
+   
+
+6. branch 삭제
+
+   ```bash
+   $ git branch -d 'feature'
+   ```
+
+   
 
 
 
-
-
-### Merge commit -1
+### Merge commit 
 
 기존 마스터 브랜치에 변경사항이 있어 병합 커밋 발생 (중복되는 파일 X)
 
-| 명령어                                                       | 뜻                                                           |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| (master) $ git merge checkout -b 'feature-a'                 | feature-a 이름의 브랜치 생성 및 이동                         |
-| A 파일 생성 및 수정                                          |                                                              |
-| $ git add A / $ git commit -m 'A파일 생성 및 수정'           | 버전 저장                                                    |
-| $ git log --oneline                                          |                                                              |
-| d68858d A 파일 생성 및 수정                                  |                                                              |
-| $ git checkout master                                        | 마스터 브런치로 나옴                                         |
-| $ git merge 'feature-a'                                      | feature-a 브랜치 마스터로 병합                               |
-| $ git log --oneline                                          |                                                              |
-| d2da131 (HEAD -> master) Merge branch 'feature-a' // d68858d A 파일 생성 및 수정 // 14691a0 마스터 내가 받은 후 새로운 버전 | 마스터 최근버전이랑 방금 올려준 버전이랑 합쳐서 새로운 머지된 마스터가 만들어졌다 |
-| $ git branch -d 'feature-a'                                  | feature-a 브랜치 삭제                                        |
+1. feature/about branch 생성 및 이동
 
+   ```bash
+   git checkout -b 'feature/about'
+   ```
 
+   
 
-### Merge commit -2
+2. 작업 완료 후 commit
+
+   ```bash
+   (feature/about) $ touch about.txt
+   (feature/about) $ git add .
+   (feature/about) $ git commit -m 'Add about.txt'
+   ```
+
+   
+
+3. master 이동
+
+   ```bash
+   $ git checkout master
+   ```
+
+   
+
+4. *master에 추가 commit 이 발생시키기!!*
+
+   * **다른 파일을 수정 혹은 생성하세요!**
+
+   ```bash
+   (master) $ touch master.txt
+   (master) $ git add .
+   (master) $ git commit -m 'Add master.txt'
+   ```
+
+   
+
+5. master에 병합
+
+   ```bash
+   $ git merge 'feature/about'
+   ```
+
+   
+
+6. 결과 -> 자동으로 *merge commit 발생*
+
+   * vim 편집기 화면이 나타납니다. 
+
+     * 자동으로 작성된 커밋 메시지를 확인하고, `esc`를 누른 후 `:wq`를 입력하여 저장 및 종료를 합니다.
+       * `w` : write
+       * `q` : quit
+
+     
+
+7. 커밋 및 그래프 확인하기
+
+   ```bash
+   $ git log --onelie --graph
+   ```
+
+8. branch 삭제
+
+   ```bash
+   $ git branch -d 'feature'
+   ```
+
+   
+
+### Merge commit (충돌)
 
 기존 마스터 브랜치에 변경사항이 있는데 수정된 파일이 중복된다
 
-| 명령어                                                       | 뜻                                                           |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| (master) $ git merge checkout -b 'feature-a'                 | feature-a 이름의 브랜치 생성 및 이동                         |
-| A 파일 생성 및 수정                                          |                                                              |
-| $ git add A / $ git commit -m 'A파일 생성 및 수정'           | 버전 저장                                                    |
-| $ git log --oneline                                          |                                                              |
-| d68858d A 파일 생성 및 수정                                  |                                                              |
-| $ git checkout master                                        | 마스터 브런치로 나옴                                         |
-| $ git merge 'feature-a'                                      | feature-a 브랜치 마스터로 병합                               |
-| Conflicts: A파일                                             | A파일 직접 고치고, 에드 커밋해야함 따로 커밋메세지는 필요치 않고 엔터를 치면 됨 |
-| $ git log --oneline                                          |                                                              |
-| d2da131 (HEAD -> master) Merge branch 'feature-a' // d68858d A 파일 생성 및 수정 // 14691a0 마스터 내가 받은 후 새로운 버전 | 마스터 최근버전이랑 방금 올려준 버전이랑 합쳐서 새로운 머지된 마스터가 만들어졌다 |
-| $ git branch -d 'feature-a'                                  | feature-a 브랜치 삭제                                        |
+1. feature/test branch 생성 및 이동
+
+   ```bash
+   $ git checkout -b 'feature/test'
+   ```
+
+   
+
+2. 작업 완료 후 commit
+
+   ```bash
+   # README.md 파일 열어서 수정
+   (feature/test) $ touch test.txt
+   (feature/test) $ git add .
+   (feature/test) $ git commit -m 'Add test.txt'
+   ```
+
+
+3. master 이동
+
+   ```bash
+   $ git checkout 'master'
+   ```
+
+   
+
+
+4. *master에 추가 commit 이 발생시키기!!*
+
+   * **동일 파일을 수정 혹은 생성하세요!**
+
+   ```bash
+   # README.md 파일 열어서 수정
+   (master) $ git add README.md
+   (master) $ git commit -m 'Update README.md'
+   ```
+
+   
+
+5. master에 병합
+
+   ```bash
+   $ git merge 'feature/test'
+   ```
+
+   
+
+
+6. 결과 -> *merge conflict발생*
+
+   > git status 명령어로 충돌 파일을 확인할 수 있음.
+
+   
+
+
+7. 충돌 확인 및 해결
+
+   
+
+
+8. merge commit 진행
+
+   ```bash
+   $ git commit
+   ```
+
+   * vim 편집기 화면이 나타납니다.
+
+     * 자동으로 작성된 커밋 메시지를 확인하고, `esc`를 누른 후 `:wq`를 입력하여 저장 및 종료를 합니다.
+
+     * `w` : write
+
+     * `q` : quit
+
+       
+
+9. 커밋 및 확인하기
+
+   ```bash
+   $ git log --oneline --graph
+   ```
+
+
+10. branch 삭제
+
+    ```bash
+    $ git branch -d 'feature/test'
+    ```
+
+
+
 
 
 

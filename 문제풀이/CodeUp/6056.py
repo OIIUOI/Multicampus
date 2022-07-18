@@ -1,6 +1,5 @@
 a, b = map(int, input().split())
-
-if a != b:
+if bool(a) == bool(b):
     print(True)
 else:
     print(False)

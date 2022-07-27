@@ -29,3 +29,8 @@
   - [데이터타입](./220714/datatype.md)
   - [에러/예외 처리](./220718/error.md)
   - [객체지향 프로그램](./220719/object_oriented.md)
+  - [클래스](./220720/class.md)
+  - [파이썬 추가문법](./220721/python_addgramer.md)
+  - [알고리즘](./220725/algorithm.md)
+    - [시간복잡도와 빅오표기법, 리스트 메서드의 시간복잡도](./220726/time_complex_list.md)
+    - [문자열](./220727/string.md)

@@ -31,6 +31,17 @@
   - [객체지향 프로그램](./220719/object_oriented.md)
   - [클래스](./220720/class.md)
   - [파이썬 추가문법](./220721/python_addgramer.md)
+
+- 알고리즘
+  
   - [알고리즘](./220725/algorithm.md)
-    - [시간복잡도와 빅오표기법, 리스트 메서드의 시간복잡도](./220726/time_complex_list.md)
-    - [문자열](./220727/string.md)
+  
+  - [시간복잡도와 빅오표기법, 리스트 메서드의 시간복잡도](./220726/time_complex_list.md)
+  
+  - [문자열](./220727/string.md)
+  
+  - [딕셔너리](./220728/dictionary.md)
+  
+  - [스택, 큐](./220801/stack_que.md)
+  
+  - [힙, 셋](./220802/Heap_Set.md)

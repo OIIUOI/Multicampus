@@ -69,7 +69,7 @@
        line = list(map(int,input().split()))
        matrix.append(line)
    ```
-
+   
    [list(map(int, input().split())) for _ in range(3)]
 
 ```

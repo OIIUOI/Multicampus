@@ -1,8 +1,8 @@
 # Bookmark
 
-문제풀이
-
-- [CodeUp](./문제풀이/CodeUp)
+- 문제풀이
+  
+  - [CodeUp](./문제풀이/CodeUp)
 
 - MarkDown 을 활용한 문서 작성
   
@@ -15,10 +15,10 @@
 - Git을 활용한 버전 관리
   
   - [Git 개념](./220706/Git_Github.md)
-  - [기본/활용 명령어](./220706/.Git_Github.md)
-  - [로컬저장소](./220706/.Git_Github.md)
-  - [원격저장소](./220706/.Git_Github.md)
-  - [클론](./220707/.remote_clone.md)
+  - [기본/활용 명령어](./220706/Git_Github.md)
+  - [로컬저장소](./220706/Git_Github.md)
+  - [원격저장소](./220706/Git_Github.md)
+  - [클론](./220707/remote_clone.md)
   - [브랜치](./220707/Git_Branch.md)
 
 - 파이썬(python)
@@ -50,3 +50,5 @@
     
     - [개념, 입력](./220803/matrix.md)
     - [순회, 전치, 회전](./220804/matrix.md)
+    - [완전탐색, 델타탐색](./220808/matrix.md)
+    - [그래프 입력](./220809/graph.md)

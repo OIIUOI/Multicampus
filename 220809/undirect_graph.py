@@ -3,15 +3,18 @@
 # 둘째줄부터 M개의 줄에 간선의 양 끝점 u와 v가 주어짐 
 # 인접 행렬 출력, 인접 리스트 출력 
 
-import sys
-sys.stdin = open('input.txt')
+from pprint import pprint
 
-n, m = map(int, sys.stdin.readline().split())
-mr = [[] for _ in range(n)]
+n, m = map(int, input().split())
+mr = [[] for _ in range(n+1)]
+ar = [[0]*(n+1) for _ in range(n+1)]
 
 for _ in range(m):
-    u, v = map(int, sys.stdin.readline().split())
+    u, v = map(int, input().split())
     mr[u].append(v)
     mr[v].append(u)
+    ar[u][v] = 1
+    ar[v][u] = 1
 
+pprint(ar)
 print(mr)

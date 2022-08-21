@@ -12,24 +12,26 @@ for _ in range(edge):
     graph[n].append(m)
     graph[m].append(n)
 
-visit = ['x' for _ in range(node + 1)]
-def dfs(start,end):
-    sign = [start]
-    visit[start] = 'o'
 
-    while sign:
-        now = sign.pop()
-        for g in graph[now]:
-            cnt = 0
-            if visit[g] == 'x':
-                visit[g] = 'o'
-                sign.append(g)
-                cnt += 1
-            if visit[end] == 'o':
-                return cnt
-        else:
-            return -1
-                
-                
+visit = [False for _ in range(node + 1)]
 
-print(dfs(n1, n2))
+chon = 0
+result = -1
+sign = [(n1, chon)]
+
+visit[n1] = True
+
+while sign:
+    print(visit)
+    print(f'sign {sign}')
+    now = sign.pop()[0]
+    print(f'now {now}')
+    if now == n2:
+        print(chon)
+        break
+    for g in graph[now]:
+        print(visit)
+        if not visit[g]:
+            visit[g] = True
+            sign.append((g, chon))
+

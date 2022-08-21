@@ -8,7 +8,7 @@ SELECT max(height), min(height), max(weight), min(weight) FROM healthcare;
 
 SELECT count(*) FROM healthcare WHERE (160 <= height) and (height <= 170);
 
-SELECT * FROM healthcare where is_drinking = 1 ORDER BY waist limit 5;
+SELECT * FROM healthcare where is_drinking = 1 and waist != '' ORDER BY waist DESC limit 5;
 
 SELECT count(*) FROM healthcare WHERE (va_left >= 1.5) and (va_right >= 1.5) and (is_drinking = 1);
 

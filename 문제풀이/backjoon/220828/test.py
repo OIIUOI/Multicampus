@@ -1,1 +1,3 @@
-print(list(range(1, 10)))
+dic = dict()
+dic['a'] = 1
+print(dic)

@@ -14,18 +14,19 @@ def dfs(graph, x, y):
     graph[x][y] = 0
     while stack:
         a, b = stack.pop()
-        dy = [1, 0]
-        dx = [0, 1]
-        for i in range(2):
+        dy = [1, 0, -1, 0]
+        dx = [0, 1, 0, -1]
+        for i in range(4):
             ny = b + dy[i]
             nx = a + dx[i]
-            if graph[nx][ny] == 1:
-                graph[nx][ny] = 0
-                picture_wide += 1
-                stack.append((nx,ny))
+            if (0<=ny<w and 0<=nx<h):
+                if graph[nx][ny] == 1:
+                    graph[nx][ny] = 0
+                    picture_wide += 1
+                    stack.append((nx,ny))
     return picture_wide
 
-pic_list = []
+pic_list = [0]
 cnt = 0
 for q in range(h):
     for p in range(w):
@@ -33,5 +34,6 @@ for q in range(h):
             cnt += 1
             pic = dfs(board, q, p)
             pic_list.append(pic)
+
 print(cnt)
 print(max(pic_list))

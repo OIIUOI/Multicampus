@@ -232,7 +232,7 @@ HTML 요소는 크게 인라인 / 블록 요소로 나눔
 - `<img>`  이미지 삽입
 
 ```html
-<img src="images/firefox-con.png" alt "My test image">
+<img src="images/firefox-con.png" alt="My test image">
 ```
 
 | 속성  | 설명                                 |
@@ -316,9 +316,3 @@ HTML5</abbr></strong>
 ![](assets/2022-08-29-21-55-01-image.png)
 
 ---
-
-- `<video>`비디오 첨부
-
-```html
-
-```

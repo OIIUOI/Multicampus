@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;300;400;500;600;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 2000px;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.nav {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  flex-direction: row;
+  justify-content: space-between;
+  height: 2.5rem;
+  position: sticky;
+  top: 0
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  display: flex;
+  padding: 0.3rem 1rem;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.for_center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: beige;
+}
+
+.product_arr {
+  display: flex
+  fle
+}
+
+.card {
+  border: 1px solid black;
+  width: 365px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.product_img {
+
+}

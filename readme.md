@@ -2,7 +2,9 @@
 
 - 문제풀이
   
-  - [CodeUp](./문제풀이/CodeUp)
+  - [CodeUp](./문제풀이/)
+  - [백준](./문제풀이/backjoon)
+  - [SWEA](./문제풀이/swea)
 
 - MarkDown 을 활용한 문서 작성
   
@@ -12,7 +14,7 @@
   
   - [CLI 와 GUI의 차이와 디렉토리 기본 명령어](./220705/CLI_directoryI.md)
 
-- Git을 활용한 버전 관리
+- Git
   
   - [Git 개념](./220706/Git_Github.md)
   - [기본/활용 명령어](./220706/Git_Github.md)
@@ -60,3 +62,15 @@
   - [데이터 조회 기본함수 연산, ALIAS GROUP BY HAVING ALTER TABLE ](./220818/Database_03.md)
   - [데이터 조회 문법 CASE 서브쿼리](./220819/Database_04.md)
   - [데이터 조합 문법 JOIN](./220823/Database_05.md)
+  - [ORM](./220824)
+  - [API](./220825)
+
+- WEB
+  
+  - [HTML, CSS 기초](./220829/HTML_CSS.md)
+  
+  - [CSS 스타일 1](./220830/CSS_basic_style.md)
+  
+  - [CSS 스타일 2](./220831/CSS.md)
+  
+  - 

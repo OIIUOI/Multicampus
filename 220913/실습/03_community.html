@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    
+    <style>
+      .a {
+        text-decoration: none;
+      }
+
+      @media (max-width: 992px) {
+        .table {
+          display: none;
+        }
+
+        .ff {
+          display: none;
+        }
+
+      }
+
+      @media (min-width: 992px) {
+        .cards {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3 text-white">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="./images/logo.png" alt="logo" style="height: 60px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./02_home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./03_community.html">Community</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="container">
+      <h2 class="text-center my-5 display-5">Community</h2>
+      <div>
+        <div class="row">
+          <div class="col-lg-2 p-3">
+            <ul class="list-group">
+              <li class="list-group-item"><a class="a" href="">Boxoffice</a></li>
+              <li class="list-group-item"><a class="a" href="">Movies</a></li>
+              <li class="list-group-item"><a class="a" href="">Genres</a></li>
+              <li class="list-group-item"><a class="a" href="">Actors</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-10 p-3">
+            <table class="table">
+              <thead>
+                <tr class="table-dark">
+                  <th class="bw-bold" scope="col">영화 제목</th>
+                  <th class="bw-bold" scope="col">글 제목</th>
+                  <th class="bw-bold" scope="col">작성자</th>
+                  <th class="bw-bold" scope="col">작성 시간</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-secondary">
+                  <th>Great Movie title</th>
+                  <th>Best Movie Ever</th>
+                  <th>user</th>
+                  <th>1 minute ago</th>
+                </tr>
+                <tr>
+                  <th>Great Movie title</th>
+                  <th>Movie Test</th>
+                  <th>user</th>
+                  <th>1 minute ago</th>
+                </tr>
+                <tr class="table-secondary">
+                  <th>Great Movie title</th>
+                  <th>Movie Test</th>
+                  <th>user</th>
+                  <th>1 minute ago</th>
+                </tr>
+                <tr>
+                  <th>Great Movie title</th>
+                  <th>Movie Test</th>
+                  <th>user</th>
+                  <th>1 minute ago</th>
+                </tr>
+                <tr class="table-secondary">
+                  <th>Great Movie title</th>
+                  <th>Movie Test</th>
+                  <th>user</th>
+                  <th>1 minute ago</th>
+                </tr>
+              </tbody>
+            </table>
+            <div class="cards">
+              <div class="card my-1">
+                <div class="card-body">
+                  <h3 class="card-title">Best Movie Ever</h5>
+                  <h4 class="card-text">Great Movie Title</h4>
+                  <p>user</p>
+                  <h5>1 minute ago</h5>
+                </div>
+              </div>
+              <div class="card my-1">
+                <div class="card-body">
+                  <h3 class="card-title">Movie Test</h5>
+                  <h4 class="card-text">Great Movie Title</h4>
+                  <p>user</p>
+                  <h5>1 minute ago</h5>
+                </div>
+              </div>
+              <div class="card my-1">
+                <div class="card-body">
+                  <h3 class="card-title">Movie Test</h5>
+                  <h4 class="card-text">Great Movie Title</h4>
+                  <p>user</p>
+                  <h5>1 minute ago</h5>
+                </div>
+              </div>
+              <div class="card my-1">
+                <div class="card-body">
+                  <h3 class="card-title">Movie Test</h5>
+                  <h4 class="card-text">Great Movie Title</h4>
+                  <p>user</p>
+                  <h5>1 minute ago</h5>
+                </div>
+              </div>
+              <div class="card my-1">
+                <div class="card-body">
+                  <h3 class="card-title">Movie Test</h5>
+                  <h4 class="card-text">Great Movie Title</h4>
+                  <p>user</p>
+                  <h5>1 minute ago</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <div class="btn-toolbar ff mb-3 " role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group me-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-outline-secondary text-primary">Previous</button>
+            <button type="button" class="btn btn-outline-secondary text-primary">1</button>
+            <button type="button" class="btn btn-outline-secondary text-primary">2</button>
+            <button type="button" class="btn btn-outline-secondary text-primary">3</button>
+            <button type="button" class="btn btn-outline-secondary text-primary">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">close</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center mt-5">
+      web-bootstrap PJT, by 이호빈 이은진
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>

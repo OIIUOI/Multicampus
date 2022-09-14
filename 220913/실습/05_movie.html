@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <style>
+    .embed-container { 
+      position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } 
+    .embed-container iframe, .embed-container object, 
+    .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/Users/ihobin/Desktop/실습/images2/logo.png" alt="이미지" style="height:60px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div><img src=./images2/logo.png alt="" style ="height:60px"></div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-itsem">
+            <a class="nav-link active text-light" aria-current="page" href="02_home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="03_home.html">Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--modal-->
+  <div id="loginModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'II never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">check me out</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--영화 카테고리-->
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <div class="navbar-nav mx-4">
+            <a class="nav-link active px-4" href="#">홈</a>
+            <a class="nav-link active px-4" href="#">랭킹</a>
+            <a class="nav-link active px-4" href="#">상영/예정작</a>
+            <a class="nav-link active px-4" href="#">콘텐츠</a>
+          </div>
+        </div>
+        <div class="navbar-nav">
+          <div class="d-flex align-items-center">
+          <i class="bi bi-search"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!--쇼생크 탈출 content-->
+  <div class= "container my-4 py-3">
+    <div class="d-flex">
+    <div class="p-2">
+      <img src = "./images/movie1.jpg" style="width:200px ;height:300px; border-radius:1rem" alt="">
+    </div>
+    <div class="mx-3 px-4 flex-grow-1">
+      <h1>쇼생크 탈출</h1>
+      <span>The Shawshank Redemption, 1994</span>
+      <div class="d-flex mt-3">
+        <div class="d-flex flex-column">
+          <div>
+          <span style="width:80px; display: inline-block;">개봉</span><span>1995.02.24</span>
+          </div>
+          <div><span style="width: 80px; display: inline-block;">재개봉</span><span>2016.02.24</span>
+          </div>
+          <div><span style="width: 80px; display: inline-block;">장르</span><span>드라마</span>
+          </div>
+          <div>
+            <span style="width: 80px; display: inline-block;">국가</span><span>미국</span>
+          </div>
+          <div>
+            <span style="width: 80px; display: inline-block;">등급</span><span>15세이상관람가</span>
+          </div>
+          <div>
+          <span style="width: 80px; display: inline-block;">러닝타임</span><span>133분, 142분(재개봉)</span>
+          </div>
+        </div>
+        <div class="d-flex flex-column">
+          <div>
+          <span class="mx-5" style="width: 80px; display: inline-block;">평점</span><span><i class="bi bi-star-fill text-danger m-0 "></i> 9.6</span>
+          </div>
+          <div class="d-flex">
+            <span class="mx-5" style="width: 80px; display: inline-block;">누적관객</span><span>11,413</span>
+          </div>
+          <div class="d-flex my-4">
+            <span class="mx-5 me-0" style="width: 80px; display: inline-block;">영화정보</span><i class="bi bi-exclamation-circle-fill"></i>
+          </div>
+        </div>  
+      </div>
+          <div class="btn-group py-4" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-white btn-outline-secondary"><img src="./images/watcha.jpg" style="margin-bottom:3px; width:15px"> 왓차</button>
+            <button type="button" class="btn btn-white btn-outline-secondary"><img src="./images/netflix.png" style="margin-bottom:3px; width:15px"> 넷플릭스</button>
+            <button type="button" class="btn btn-white btn-outline-secondary"><img src="./images/wavve.png" style="margin-bottom:3px; width:15px"> 웨이브</button>  
+          </div>  
+        </div>
+      </div>    
+    <!--content-->
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active text-dark" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">주요정보</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-dark" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">출연/제작</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-dark" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">영상/포토</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link text-dark" id="pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" >평점</button>
+      </li>
+    </ul>
+    <hr>
+    <!--content-->
+    <div class="d-flex flex-column mt-5">
+      <span class="fw-bold">두려움은 너를 죄수로 가두고</span>
+      <span class="fw-bold">희망은 너를 자유롭게 하리라</span>
+      <span class="py-4">촉망 받던 은행 부지점장 ‘앤디(팀 로빈슨 分)’는 아내와 그 애인을 살해한 혐의로 종신형을 받고 쇼생크 교도소에 수감된다..</span>
+      <p>
+        <a class="btn btn-white btn-outline-white text-dark m-0 p-0 " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          더보기 <i class="bi bi-chevron-down"></i>
+        </a>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card">
+          촉망 받던 은행 부지점장 ‘앤디(팀 로빈슨 分)’는 아내와 그 애인을 살해한 혐의로 종신형을 받고 쇼생크 교도소에 수감된다. 강력범들이 수감된 이곳에서 재소자들은 짐승 취급 당하고, 혹여 간수 눈에 잘못 보였다가는 개죽음 당하기 십상이다. 처음엔 적응 못하던 ‘앤디’는 교도소 내 모든 물건을 구해주는 ‘레드(모건 프리먼 分)’와 친해지며 교도소 생활에 적응하려 하지만, 악질 재소자에게 걸려 강간까지 당한다.
+          그러던 어느 날, 간수장의 세금 면제를 도와주며 간수들의 비공식 회계사로 일하게 되고, 마침내는 소장의 검은 돈까지 관리해주게 된다. 덕분에 교도소 내 도서관을 열 수 있게 되었을 무렵, 신참내기 ‘토미(길 벨로우스 分)’로부터 ‘앤디’의 무죄를 입증할 기회를 얻지만, 노튼 소장은 ‘앤디’를 독방에 가두고 ‘토미’를 무참히 죽여버리는데...
+          <hr>
+          제작된 지 16년이 지난 지금에도 꾸준히 사랑 받고 있는 영화. 촉망받던 은행 부지점장 앤디는 아내와 애인을 살해한 혐의로 종신형을 받고 쇼생크 교도소에 수감된다. 강력범이 수감된 이곳에서 재소자들은 짐승 취급을 당하거나, 간수 눈에 잘못 보이면 죽음을 당할 수도 있다. 적응하지 못하던 앤디는 간수장의 세금 면제를 도와주며 비공식 회계사로 일을 하게 되고, 조금씩 희망을 찾으려 하지만 이내 좌절당하는 일이 반복된다. 앤디는 감옥 생활에 길들여져 가면서도 끝까지 희망을 놓지 않는다. 절망적인 상황 속에서 인간의 나약함과 희망에 대해 이야기하는 영화 <쇼생크 탈출>은 미국 영화 정보 사이트 IMDB에서 <대부>를 제치고 
+          네티즌 평점 1위를 받았다.
+        (2016년 제4회 무주산골영화제)
+        </div>
+      </div>
+      <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container px-0 mt-3">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+              <a class="nav-link active fw-bold px-0 fs-5">출연진</a>
+            </div>
+          </div>
+          <div class="navbar-nav">
+            <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-outline-secondary rounded-pill text-black text-center">더보기<i class="ms-2 bi bi-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <hr>
+      <!--출연진-->
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-md-1 p-0">
+            <img class="img-fluid rounded-2" src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F15404110ADFC72D333" alt="프랭크">
+            <span class="d-flex mt-2"><a href="#" class="text-decoration-none text-black">프랭크 다라본트</a></span>
+            <span class="text-secondary">감독</span>
+          </div>
+          <div class="col-md-1 p-0">
+            <img class="img-fluid rounded-3"src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F140D7C10ADF8435D0C" alt="로빈스">
+            <span class="d-flex mt-2"><a href="#" class="text-decoration-none text-black">팀 로빈스</a></span>
+            <span class="text-secondary">주연</span>
+          </div>
+          <div class="col-md-1 p-0">
+            <img class="img-fluid rounded-3"src="https://img1.daumcdn.net/thumb/C116x168/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Ffae5ef8b0d92cead2954dad9521386e2db445312" alt="모건">
+            <span class="d-flex mt-2"><a href="#" class="text-decoration-none text-black">모건 프리먼</a></span>
+            <span class="text-secondary">주연</span>
+          </div>
+          <div class="col-md-1 p-0">
+            <img class="img-fluid rounded-3"src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F156B8D10B16CC9264C" alt="밥">
+            <span class="d-flex mt-2"><a href="#" class="text-decoration-none text-black">밥 건튼</a></span>
+            <span class="text-secondary">출연</span>
+          </div>
+          <div class="col-md-1 p-0">
+            <img class="img-fluid rounded-3"src="https://img1.daumcdn.net/thumb/C116x168/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fdong-test%2F8e7d65915ad1bfdd12d68c975a7a14ab7cb6b45c" alt="윌리엄">
+            <span class="d-flex mt-2"><a href="#" class="text-decoration-none text-black">윌리엄 새들러</a></span>
+            <span class="text-secondary">출연</span>
+          </div>
+          <div class="col-md-1 p-0">
+            <img class="img-fluid rounded-3"src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F2217504452CE159F28" alt="클랜시">
+            <span class="d-flex mt-2"><a href="#" class="text-decoration-none text-black">클랜시 브라운</a></span>
+            <span class="text-secondary">출연</span>
+          </div>
+          <div class="col-md-1 p-0 ">
+            <img class="img-fluid rounded-3"src="https://img1.daumcdn.net/thumb/C116x168/?fname=http%3A%2F%2Ft1.daumcdn.net%2Fcfile%2F126F1B10AE07401E31" alt="길">
+            <span class="d-flex mt-2"><a href="#" class="text-decoration-none text-black">길 벨로우스</a></span>
+            <span class="text-secondary">출연</span>
+          </div>
+        </div>
+      </div>
+      <!--영상/포토-->
+      <nav class="navbar navbar-expand-lg bg-white mt-5">
+        <div class="container px-0 mt-3">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+              <a class="nav-link active fw-bold px-0 fs-5">영상/포토</a>
+            </div>
+          </div>
+          <div class="navbar-nav">
+            <div class="d-flex align-items-center">
+              <button type="button" class="btn btn-outline-secondary rounded-pill text-black text-center">더보기<i class="ms-2 bi bi-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!--포토-->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <div class='embed-container rounded-2'><iframe src='https://www.youtube.com/embed/Do0slRSdnVM' frameborder='0' allowfullscreen></iframe></div>
+          </div>
+          <div class="col-md-6">
+            <div class='embed-container rounded-2'><iframe src='https://www.youtube.com/embed/YGwhQLmUWoo'  frameborder='0' allowfullscreen></iframe></div>
+          </div>
+          <div class="col-md-3 mt-3 ">
+            <img class="rounded-2"src="http://t1.daumcdn.net/movie/46ddad76632b50b03fcab83936d2144b62eb53ca"style="width:100%" alt="사진1">
+          </div>
+          <div class="col-md-3 mt-3">
+            <img class="rounded-2"src="http://t1.daumcdn.net/movie/0f3f103d88364401f90a7622ff6ba7bf46a51987"style="width:100%" alt="사진1">
+          </div>
+          <div class="col-md-3 mt-3">
+            <img class="rounded-2"src="http://t1.daumcdn.net/movie/2c12ce10fa2bcba9645c70b0c48e03e797a6fa24"style="width:100% " alt="사진1">
+          </div>
+          <div class="col-md-3 mt-3">
+            <img class="rounded-2"src="http://t1.daumcdn.net/movie/403713a7db54edbdb1231768a01f463c04c28ff6"style="width:100%" alt="사진1">
+          </div>
+          </div>
+        </div>
+        <!--원작-->
+        <nav class="navbar navbar-expand-lg bg-white mt-5">
+          <nav class="container px-0 mt-3">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <div class="navbar-nav">
+                <a class="nav-link active fw-bold px-0 fs-5">원작 <span class="text-secondary">1</span></a> 
+              </div>                
+            </div>
+          </nav>  
+        </nav>
+        <hr>
+        <!--원작 사진이랑 이름-->
+        <div class="d-flex">
+          <img class= "rounded-2"src="https://search1.kakaocdn.net/thumb/C116x164.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F822935%3Ftimestamp%3D20220909211601%3Fmoddttm=202209141609" alt="원작">
+          <div class="d-flex flex-column mx-5">
+            <h6 class="fw-bold">리타 헤이워드와 쇼생크 탈출(밀리언셀러 클럽 1)</h6>
+            <div class="mb-2 mt-2">도서</div>
+            <div>스티븐 킹</div>
+          </div>
+        </div>  
+        <!--OST-->
+        <nav class="navbar navbar-expand-lg bg-white mt-5">
+        <nav class="container px-0 mt-3">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
+              <a class="nav-link active fw-bold px-0 fs-5">OST <span class="text-secondary">1</span></a> 
+            </div>                
+          </div>
+        </nav>  
+      </nav>
+      <hr>
+      <!--OST내용-->
+      <div class="d-flex">
+        <img class= "rounded-2"src="https://cdnimg.melon.co.kr/cm/album/images/000/40/783/40783_500.jpg/melon/resize/282/quality/80/optimize" style="width:116px" alt="원작">
+        <div class="d-flex flex-column mx-5">
+          <h6 class="fw-bold">쇼생크 탈출 OST</h6>
+          <div class="mb-2 mt-2"></div>
+          <div></div>
+        </div>
+      </div>   
+    </div>
+    </div>  
+  </div>
+  </div>
+  </div> 
+  </div>
+</div>
+  <footer class="text-center mt-5 py-5 bg-light">
+    Web-bootstrap PJT, by 이호빈, 이은진
+  </footer> 
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>  
+</html>

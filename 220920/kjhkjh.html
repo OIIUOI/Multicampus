@@ -1,0 +1,90 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .ball {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10rem;
+      font-size: 3rem;
+      font-weight: bold;
+      margin-right: 1rem;
+      margin-left: 1rem;
+    }
+    .bonus {
+      font-size: 6rem;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>번호생성</h1>
+    <button>번호생성</button>
+    <div id="ball-container">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+      const button = document.querySelector('#lottonumber')
+      button.addEventListener('click', function() {
+      // 로또 번호 틀
+      const ballContainer = document.querySelector('#ball-container')
+      ballContainer.replaceChildren();
+
+      // 로또 번호 추첨
+      const numbers = _.sampleSize(_.range(1, 46), 7)
+      console.log(numbers)
+
+      // 로또 공 만들고 번호 삽입.
+      for (let i = 0; i < numbers.length-1; i++){ 
+        const ball = document.createElement('div')
+        ball.classList.add('ball')
+        ball.innerText = numbers[i]
+        ball-container.appendChild(ball)
+        
+        if (numbers[i] < 11) {
+          ball.style.backgroundColor = 'yellow'
+        } else if (numbers[i] < 21) {
+          ball.style.backgroundColor = 'blue'
+        } else if (numbers[i] < 31) {
+          ball.style.backgroundColor = 'red'
+        } else if (numbers[i] < 41) {
+          ball.style.backgroundColor = 'grey'
+        } else {
+          ball.style.backgroundColor = 'green'
+        }
+      }
+      
+      const bonus = document.createElement('div')
+      bonus.innerText = '+'
+      bonus.classList.add('bonus')
+      document.getElementById('ball-container').appendChild(bonus)
+
+
+      const bonusball = document.createElement('div')
+      bonusball.classList.add('ball')
+      bonusball.innerText = numbers[6]
+      document.getElementById('ball-container').appendChild(bonusball)
+
+      if (numbers[6] < 11) {
+          bonusball.style.backgroundColor = 'yellow'
+        } else if (numbers[6] < 21) {
+          bonusball.style.backgroundColor = 'blue'
+        } else if (numbers[6] < 31) {
+          bonusball.style.backgroundColor = 'red'
+        } else if (numbers[6] < 41) {
+          bonusball.style.backgroundColor = 'grey'
+        } else {
+          bonusball.style.backgroundColor = 'green'
+        }
+
+    })
+  
+    </script>
+  </body>
+  </html>
+    

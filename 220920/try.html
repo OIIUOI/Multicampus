@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>어쩔껀데 ㅋㅋㄹㅃㅃ</title>
+  <style>
+    .ball {
+      height: 10rem;
+      width: 10rem;
+      border-radius: 50%;
+      margin: 5px;
+      background-color: darkturquoise;
+      text-align: center;
+      line-height: 10rem;
+      font-size: xx-large;
+    }
+    .ballbox {
+      display: flex;
+      flex-direction: row;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">ㄱㄱ</button>
+  <div class="result"></div>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+  <script>
+    const btn = document.querySelector('#btn');
+    const number = _.sampleSize(_.range(1,46), 6);
+    btn.addEventListener('click', function() {
+      const ballbox = document.createElement('div')
+      ballbox.classList.add('ballbox')
+      for (let i = 0; i < 6; i ++) {
+      const ball = document.createElement('div');
+      ball.classList.add('ball');
+      ball.innerText = number[i];
+      console.log(ball)
+      }
+      ballbox.appendChild(ball);
+      const result = document.querySelector('.result')
+      result.appendChild(ballbox)
+    })
+  </script>
+</body>
+</html>

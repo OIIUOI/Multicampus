@@ -1,6 +1,7 @@
 import sys
 input = sys.stdin.readline
 
+# 숫자이면 변환해주는 함수
 def sum_num(x):
     result = 0
     for i in x:
@@ -13,7 +14,10 @@ guitar = []
 
 for _ in range(int(input())):
     guitar.append(input().rstrip())
-
+    
+guitar.sort()
+guitar.sort(key=sum_num)
 guitar.sort(key= len)
-guitar.sort(key=sum_num, reverse=True)
-print(guitar)
+
+for g in guitar:
+    print(g)

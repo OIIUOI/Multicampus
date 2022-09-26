@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>어쩔껀데 ㅋㅋㄹㅃㅃ</title>
+  <title>ㅋㅋㄹㅃㅃ</title>
   <style>
     .ball {
       height: 10rem;
@@ -28,8 +28,8 @@
   <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
   <script>
     const btn = document.querySelector('#btn');
-    const number = _.sampleSize(_.range(1,46), 6);
     btn.addEventListener('click', function() {
+      const number = _.sampleSize(_.range(1,46), 6);
       const ballbox = document.createElement('div')
       ballbox.classList.add('ballbox')
       for (let i = 0; i < 6; i ++) {
@@ -37,8 +37,9 @@
       ball.classList.add('ball');
       ball.innerText = number[i];
       console.log(ball)
-      }
       ballbox.appendChild(ball);
+      }
+      
       const result = document.querySelector('.result')
       result.appendChild(ballbox)
     })

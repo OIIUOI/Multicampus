@@ -1,9 +1,9 @@
 member = []
 for _ in range(int(input())):
-    person = input()
-    member.append((person))
+    age,name = input().split()
+    member.append((age,name))
 
-member.sort(key= lambda x:int(x.split()[0]))
+member.sort(key= lambda x:int(x[0]))
 
 for m in member:
     print(m)

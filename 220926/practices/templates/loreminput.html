@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/lorem-output">
+  문단의 수 <input type="text" name="block">
+  단어의 수 <input type="text" name="word">
+  <button type="submit">생성</button>
+</form>
+{% endblock %}

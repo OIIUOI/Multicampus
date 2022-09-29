@@ -1,4 +1,4 @@
-"""practice URL Configuration
+"""todolist URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -14,16 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from practices import views
+from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("index/", views.index),
-    path("isodd/<int:num>/", views.isodd),
-    path("calculate/<a>/<b>/", views.calculate),
-    path("js/", views.js),
-    path("jsresult/", views.jsresult),
-    path("lorem-input/", views.loreminput),
-    path("lorem-output/", views.loremoutput),
+    path("", include("todos.urls")),
 ]

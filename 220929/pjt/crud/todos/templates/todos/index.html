@@ -1,5 +1,25 @@
-{{% extends 'base.html' %}}
+{% extends 'base.html' %}
 
-{{% blcok content %}}
-<h1>dddd</h1>
-{{% endblock%}}
+{% block content %}
+<h1>Todo List</h1>
+<form action="{% url 'todos.' %}">
+  할 일 <input type="text" name="todo" max_length='80'>
+  우선순위
+  <select name="priority" id="">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  마감기한
+  <input type="date" name="deadline">
+  <input type="submit">
+</form>
+<br>
+<ul>
+  {% for todo in todos %}
+  <li>{{ todo.todo }} {{ todo.completed }} {{ todo.priority }} {{ todo.created_at }} {{ todo.deadline }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

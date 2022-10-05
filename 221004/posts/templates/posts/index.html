@@ -1,0 +1,17 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+
+<h1>인덱스 페이지</h1>
+<a href="{% url 'posts:new' %}"> 새 글 쓰기</a>
+
+{% for article in articles %}
+<p><a href="{% url 'posts:detail' article.pk %}">{{ article.title }}</a>
+  {{ article.create_at }}
+  {{ article.update_at }}
+  <a href="{% url 'posts:delete' article.pk %}">삭제</a>
+  <a href="{% url 'posts:edit' article.pk %}">수정</a>
+</p>
+{% endfor %}
+
+{% endblock %}

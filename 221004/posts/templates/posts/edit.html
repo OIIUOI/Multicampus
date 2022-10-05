@@ -1,0 +1,10 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+<form action="{% url 'posts:update' editpost.pk %}" method="get">
+  제목 : <input type="text" maxlength="15" name="title" value="{{ editpost.title }}">
+  내용 : <input type="text" name="content" value="{{ editpost.content }}">
+  <input type="submit">
+
+</form>
+{% endblock %}

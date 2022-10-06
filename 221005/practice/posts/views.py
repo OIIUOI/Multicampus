@@ -11,8 +11,8 @@ def create(request):
     if request.method == "POST":
         postform = PostForm(request.POST)
         if postform.is_valid():
-            postform.save()
-            return redirect("posts:detail", postform.pk)
+            savepost = postform.save()
+            return redirect("posts:detail", savepost.pk)
     else:
         postform = PostForm()
     context = {"Postform": postform}
@@ -20,8 +20,8 @@ def create(request):
 
 
 def detail(request, pk):
-    content = {"pk": pk}
-    return render(request, "posts/detail.html")
+    post = Post.objects.get(pk=pk)
+    return render(request, "posts/detail.html", {"post": post})
 
 
 def delete(request):

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block ct %}
+
+{% for a in articles %}
+
+<p>{{ a.title }} {{ a.create_at }} {{ a.update_at }}</p>
+<hr>
+
+{% endfor %}
+
+{% endblock %}

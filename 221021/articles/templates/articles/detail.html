@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block base %}
+<h1>{{ article.title }}</h1>
+<span>
+  생성날짜 {{ article.created_at|date:"y.m.d D" }}
+  {% if article.created_at != article.updated_at%}
+  수정날짜 {{ article.updated_at|date:"y.m.d D" }}
+  {% endif %}
+</span>
+<hr>
+<p>
+  {{ article.content }}
+</p>
+<a href="{% url 'articles:update' article.pk %}">수정</a>
+<a href="{% url 'articles:delete' article.pk %}">삭제</a>
+<a href="{% url 'articles:index' %}">목록</a>
+{% endblock %}

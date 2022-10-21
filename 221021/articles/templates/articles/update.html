@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+<form action="" method="post">
+  {% csrf_token %}
+  {{ articleform.as_p }}
+  <button type="submit">저장</button>
+</form>
+
+<a href="{% url 'articles:index' %}">목록으로</a>
+{% endblock base %}

@@ -69,45 +69,45 @@
      # pjt/settings.py 에서
      # INSTALLED_APPS = [] 괄호에 아래와 같이 생성한 앱 등록
      ```
-   
-   INSTALLED_APPS = [
-   
-       'accounts',
-       ...,
-   
-   ]
-   
-   ```
-   2-3. urls.py 설정 (url 분리 및 매핑)
-   ```python
-   # pjt/urls.py 에서 아래와 같이 include import 한 다음
-   # 'accounts/' 경로로 향하는 path 추가
-   
-   from django.contrib import admin
-   from django.urls import path, include
-   
-   urlpatterns = [
-       path('admin/', admin.site.urls),
-       path('accounts/', include('accounts.urls')),
-   ]
-   ```
-   
-   ```python
-   # accounts/urls.py 생성하고, 아래와 같이 코드 계속 작성
-   
-   from django.urls import path
-   from . import views
-   
-   app_name = 'accounts'
-   # app_name 은 왜 쓸까요?
-   # 우리는 기본적으로 URL을 모두 변수화해서 쓰고 있음
-   # Template, View에서 직접 '/accounts/' X 
-   # app_name과 path 이름으로 
-   
-   urlpatterns = [
-   
-   ]
-   ```
+
+```python
+INSTALLED_APPS = [
+'accounts',
+...,
+]
+```
+
+```
+2-3. urls.py 설정 (url 분리 및 매핑)
+```python
+# pjt/urls.py 에서 아래와 같이 include import 한 다음
+# 'accounts/' 경로로 향하는 path 추가
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
+]
+```
+
+```python
+# accounts/urls.py 생성하고, 아래와 같이 코드 계속 작성
+
+from django.urls import path
+from . import views
+
+app_name = 'accounts'
+# app_name 은 왜 쓸까요?
+# 우리는 기본적으로 URL을 모두 변수화해서 쓰고 있음
+# Template, View에서 직접 '/accounts/' X 
+# app_name과 path 이름으로 
+
+urlpatterns = [
+
+]
+```
 
 ---
 
@@ -116,6 +116,7 @@
 > 🗂️[(참고자료1)](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/#user-model) [(참고자료2)](https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#substituting-a-custom-user-model)
 
 - Django User Model
+  
   - "Custom User Model 로 대체하기"
   - Django 는 기본적인 인증 시스템과 여러가지 필드가 포함된 User Model 을 제공, 대부분의 개발 환경에서 기본 User Model 을 Custom User Model 로 대체
   - Django 는 새 프로젝트를 시작하는 경우 비록 기본 User 모델(`auth.User`)이 충분하더라도 커스텀 User 모델(`accounts.User`) 설정하는 것을 강력하게 권장(highly recommended)
@@ -123,6 +124,7 @@
     - 단, User 모델 대체 작업은 프로젝트의 모든 migrations 혹은 첫 migrate 를 실행하기 전에 이 작업을 마쳐야 함
     - 모델을 바꾼다는 것은 DB가 변경된다는 것과 동일한 말이기 때문에, 만약 Custom User Model 을 언제든지 변경할 수 있도록 미리 만들어두지 않으면 나중에 모델 하나 바꾸기 위해 DB를 복잡하게 변경해야 하는 이슈가 발생할 수 있음
     - If you’re starting a new project, it’s highly recommended to set up a custom user model, even if the default [`User`](https://docs.djangoproject.com/en/3.2/ref/contrib/auth/#django.contrib.auth.models.User) model is sufficient for you. [(link)](https://docs.djangoproject.com/en/3.2/topics/auth/customizing/#substituting-a-custom-user-model)
+
 - 모델 설정 해보기
 1. 모델 정의
    1-1. 만약 accounts 앱을 만들고 등록하기 전에, 다른 앱을 만들면서 모델을 생성하고 마이그레이트 했다면, DB 열었을 때 `auth_user` 부분에 이미 admin 유저에 대한 정보가 입력되어 있는 것을 확인할 수 있음
@@ -139,9 +141,10 @@
    
    AUTH_USER_MODEL = 'accounts.User'
    
-   ```
    1-3. 내부에 있던 모델 상속 받아오기
+   
    - `AbstractUser` 가 무엇인지 궁금하다면? 👉 [(link)](https://github.com/django/django/blob/main/django/contrib/auth/models.py#L405)
+   
    ```python
    # accounts/models.py 에서 아래와 같이 내용 채우기
    

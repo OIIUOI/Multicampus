@@ -139,6 +139,114 @@ $ python manage.py createsuperuser
 # app/admin.py
 from django.contrib import admin (# <- default)
 from .models import ModelName
-  
+
 admin.site.register(ModelName)
 ```
+
+---
+
+## ◼ accounts
+
+- 가입하기
+
+```python
+# accounts.models 모델 생성
+
+from django.contrib.auth import AbstractUser # 인증과 대략의 폼이 생성되있음
+
+class User(AbstractUser):
+    pass
+
+# settings
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# accounts.forms
+
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+
+class CustomUserModel(UserCreationForm):
+    class Meta:
+        model = 'get_user_model()'
+        fields = 'username'
+
+# accounts.urls
+
+app_name = 'accounts'
+urlpatterns - [
+    path('signup/', views.signup, name='signup')
+]
+
+# accounts.views
+from .forms import CustomUserModel
+
+def signup(request):
+    if request.method == 'POST':
+        userform = CustomUserModel(request.POST)
+        if userform.is_valid():
+            userform.save()
+            return redirect('article:index')
+    else:
+        userform = CustomUserModel()
+    context = ['userform' : userform]
+    return render(request, 'accounts/signup.html', context)
+
+# accounts.templates.accounts.signup
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ userform }}
+    <button ???= commit>가입</button>
+</form>
+```
+
+---
+
+- 로그인
+  
+  -  `AuthenticationForm` = 로그인 할 때 쓰는 폼
+    
+    - `AuthenticationForm`는 `django.contrib.auth.forms `에 위치
+    
+    - `AuthenticationForm` 는 form 을 상속받음
+  
+  - `login()` = 로그인 할 때 세션에 정보 등록 해주는 함수
+
+```python
+# accounts.urls
+
+urlpatterns = [
+    path('login', views.log_in, name = login)
+]
+
+
+# accounts.views
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
+
+def log_in(request):
+    if request.method == 'POST':
+        loginform = AuthenticationForm(request, data = request.POST)
+        if loginform.is_valid:
+            login(request, loginform.get_user())
+            return redirect('article:index')
+    else:
+        loginuser = AuthenticationForm()
+    context = {'loginform' : loginuser}
+    return render(request, 'accounts/login.html', context)
+
+
+# accounts.templates.accounts.login.html
+<form action="" method="post">
+  {% csrf_token %}
+  {{ loginform }}
+  <button type="submit">login</button>
+</form>
+```
+
+---
+
+로그인이 무조건 필요하게끔
+
+`@login_required`

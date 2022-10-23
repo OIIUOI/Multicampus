@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+{{ user.username }}
+{{ user.date_joined }}
+
+<a href="{% url 'articles:index' %}">목록</a>
+
+{% endblock %}

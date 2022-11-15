@@ -31,7 +31,7 @@ css 파일을 불러올 때는
 {% load static %}
 
 <head>
-    <link rel="stylesheet" href="{% static 'ㅊㄴ/ㄴ쇼ㅣㄷ.ㅊㄴ%}"
+    <link rel="stylesheet" href="{% static 'ㅊ/ㄴ쇼ㅣㄷ.ㅊㄴ%}"
 </head>
 ```
 
@@ -109,9 +109,9 @@ html 에 부트스트랩, css, javascript 을 로드해줌
   <!-- create -->
   ```
 
-/8754210    **/resolver_match** request 를 풀어주는.. 번역해주는..
+**/resolver_match** request 를 풀어주는.. 번역해주는..
 
--*+*---## ◼ 표시형식 바꾸기
+- ◼ 표시형식 바꾸기
 
 - Django Templates Filter (|~~~~) 
 
@@ -205,13 +205,19 @@ def signup(request):
 
 - 로그인
   
-  -  `AuthenticationForm` = 로그인 할 때 쓰는 폼
+  - `AuthenticationForm` = 로그인 할 때 쓰는 폼
     
-    - `AuthenticationForm`는 `django.contrib.auth.forms `에 위치
+    - `django.contrib.auth.forms`에 위치
     
     - `AuthenticationForm` 는 form 을 상속받음
+    
+    - `request, data = request.POST` 를 받음
   
-  - `login()` = 로그인 할 때 세션에 정보 등록 해주는 함수
+  - `login()` = 세션에 로그인했다고 알려주는 함수
+    
+    - 인증해주기 때문에 `django.contrib.auth` 에 위치
+    
+    - `request, AuthenticationFrom에서 넘겨준 user`  를 받음
 
 ```python
 # accounts.urls
@@ -247,6 +253,174 @@ def log_in(request):
 
 ---
 
-로그인이 무조건 필요하게끔
+- 인증이 무조건 필요하게끔
+  
+  - `is_authenticated`
+    
+    - 위치가 없음
+    
+    - if request.user.is_authenticated: ( = request의 user 가 인증된 user 라면 (= 로그인 된 유저라면)
+  
+  - `@login_required`
+    
+    - django.contrib.auth.decorations 에 위치
+    
+    - 로그인이 무조건 필요하게끔 해주면서 로그인페이지로 보내줌
+      
+      ```python
+      # accounts.views
+      
+      from django.contrib.auth.decorator import login_required
+      
+      @login_required
+      def aaa(request):
+          return render(request, 'aaa.html')
+      
+      # aaa 를 작동할 땐 로그인이 꼭 필요하게 되고, 로그인 페이지로 자동이
+      ```
+    
+    - 로그인을 한 후 원래있던 곳으로 돌아가게끔 하는 것
+      
+      `@login_required` 는 일반 url 과 조금 다른데 
+      
+      똑같이 로그인 페이지에 돌려본대준대도
+      
+      http://127.0.0.1:8000/accounts/login/?next=/articles/create/
+      
+      뒤에 ?next=는 어디에서 왔었던 건지 url 을 알려줌
+      
+      이 next의 정보를 get 해서 redirect 로 처리를 해주는 것임
+      
+      그래서 로그인 view 에서 이것을 처리하는 코드는 아래와 같다
+      
+      ```python
+      # accounts.views
+      from django.contrib.auth.forms import AuthenticationForm
+      from django.contrib.auth import login
+      from django.contirib.auth.decorations import login_required
+      
+      def log_in(request):
+          if request.method == 'POST':
+              loginform = AuthenticationForm(request, data = request.POST)
+              if loginform.is_valid:
+                  login(request, loginform.get_user())
+      ############################################################
+      # 달라진 코드
+                  if request.GET.get('next'):
+                      return redirect(request.GET.get('next')
+                  else:
+                      return redirect('article:index')
+      # 이렇게 줄일 수 있음
+                  return redirect(request.GET.get('next') 
+                  or 'articles:indx')
+      ############################################################
+      
+          else:
+              loginuser = AuthenticationForm()
+          context = {'loginform' : loginuser}
+          return render(request, 'accounts/login.html', context)
+      ```
 
-`@login_required`
+---
+
+- 로그아웃하기
+  
+  - logout()
+    
+    - `django.contrib.auth` 에 위치
+    
+    - request만 인자로 받음
+
+```python
+# accounts.views
+from django.contrib.auth import logout
+def log_out(request):
+    logout(request)
+    return redirect('articles:index)
+```
+
+---
+
+- 회원가입하고 바로 로그인까지 해주기
+
+```python
+# accounts.views
+from .forms import CustomUserModel
+from django.contrib.auth import login
+def signup(request):
+    if request.method == 'POST':
+        userform = CustomUserModel(request.POST)
+        if userform.is_valid():
+#######################################################################
+# 추가되는 코드
+            save_user= userform.save()
+            login(request, save_user)
+#######################################################################
+            return redirect('article:index')
+    else:
+        userform = CustomUserModel()
+    context = ['userform' : userform]
+    return render(request, 'accounts/signup.html', context)
+```
+
+---
+
+- 회원정보 수정
+
+```python
+# accounts.forms
+
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm
+
+class CustomUserChangeForm(UserchangeForm):
+    class Meta:
+        model = get_user_model()
+        fields = ('first_name', 'email')
+
+# accounts.urls
+
+app_name = 'accounts'
+urlpatterns - [
+    path('update/', views.update, name='update')
+]
+
+# accounts.views
+from .forms import CustomUserChangeForm
+
+def update(request):
+    if request.method == 'POST':
+        userchangeform = CustomUserChangeForm(request.POST, instatnce = request.user)
+        if userchangeform.is_valid():
+            userchangeform.save()
+            return redirect('article:index', request.user.pk)
+    else:
+        userchangeform = CustomUserChangeForm(instatnce = request.user)
+    context = ['userchangeform' : userchangeform]
+    return render(request, 'accounts/signup.html', context)
+
+# accounts.templates.accounts.update
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ userchangeform }}
+    <button type="submit"> 완료</button>
+</form>
+```
+
+![](assets/2022-10-24-03-53-58-image.png)
+
+![](assets/2022-10-24-03-54-40-image.png)
+
+---
+
+## 메세지 작성
+
+```python
+from django.contrib import messages
+
+
+def ~~~~~(req):
+    messages.success(request, "글 작성이 완료되었습니다.")
+```
+
+s

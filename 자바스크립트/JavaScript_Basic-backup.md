@@ -29,7 +29,7 @@ const name = prompt("이름을 입력하세요.");
 alert("환영합니다," + name + "님");
 ```
 
-![](assets/2022-10-30-12-36-15-image.png)
+![](file://C:\Users\jin47\OneDrive\바탕 화면\multicampus\자바스크립트\assets\2022-10-30-12-36-15-image.png?msec=1668345907357)
 
 - confirm
   
@@ -51,11 +51,11 @@ alert("환영합니다," + name + "님");
   
   - 타입값 리턴
   
-  - 괄호 X / 띄워쓴 후 값 
+  - 괄호 X / 띄워쓴 후 값
 
 - parseInt()
   
-  - = int() 
+  - = int()
 
 - isNaN()
   
@@ -144,9 +144,9 @@ if (// 조건){
 }
 ```
 
-- and = && 
+- and = &&
 
-- or = || 
+- or = ||
 
 ## Javascript on the Browser
 
@@ -200,7 +200,7 @@ if (// 조건){
   => 할 수 없음 / array이기 때문
   ```
 
-- `querySelector` 
+- `querySelector`
   
   **.className innerTag**
   
@@ -281,56 +281,6 @@ function handleTitleClick() {
 a.addEventListener("click", handleTitleClick);
 a.onclick = handleTitleClick;
 <!-- 위의 2줄 코드는 동일 -->
-
-<!-- addEventListener 는 .removeEventListener 로 이벤트를 취소할 수 있
 </script>
 </body>
-```
-
-- 자바스크립트에서는 클래스도 변경할 수 있다 
-
-```javascript
-const a = document.querySelector(".a");
-
-function handleTitleClick() {
-
-    const clickedClass = "clicked"
-
-    if (a.className === clickedClass) {
-    a.className = "";
-    } else {
-    a.className = clickedClass;
-    }
-}
-```
-
-a.className = "" 이라서 초기화됨 계속 간직해야 할 class는 어떡하지?
-
-- `contain()`, `remove()`, `add()`
-
-```javascript
-const a = document.querySelector(".a");
-
-function handleTitleClick() {
-
-    const clickedClass = "clicked"
-
-    if (a.classList.contains(clickedClass)) {
-    a.classList.remove(clickedClass)
-    } else {
-    a.className.add(clickedClass)
-    }
-}
-```
-
-- toggle
-  
-  - 저 긴 코드를 한줄로 묶기
-
-```javascript
-const a = document.querySelector(".a");
-
-function handleTitleClick() {
-    a.classList.toggle("clicked");
-}
 ```
